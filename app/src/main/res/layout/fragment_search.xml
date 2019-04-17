@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.expedia.assignment.search.viewmodel.SearchViewModel" />
+
+        <import type="com.expedia.assignment.common.utils.ResponseUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/search"
+            android:layout_alignParentEnd="true">
+        </Button>
+
+        <EditText
+            android:id="@+id/searchET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_toLeftOf="@id/search_btn"
+            android:hint="@string/query"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/search_btn"
+            android:layout_marginEnd="@dimen/dp_16" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/searchET"
+            android:background="@color/white">
+
+
+            <include
+                android:id="@+id/success_layout"
+                layout="@layout/item_search_success"
+                android:visibility="@{ResponseUtils.isSuccess(viewModel.apiResponse) ? View.VISIBLE : View.GONE}"
+                app:viewModel="@{viewModel}" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{ResponseUtils.isInProgress(viewModel.apiResponse) ? View.VISIBLE : View.GONE}" />
+
+            <include
+                android:id="@+id/error_layout"
+                layout="@layout/item_error"
+                android:visibility="@{ResponseUtils.isError(viewModel.apiResponse) ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

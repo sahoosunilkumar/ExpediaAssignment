@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/error_screen_background"
+        >
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/error_msg_tv"
+            style="@style/Text.Thin"
+            android:text="@string/error"
+            android:textColor="@color/white"
+            android:textSize="54sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:background="@color/gray"
+            android:text="@string/retry"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/error_msg_tv"
+            app:layout_constraintStart_toStartOf="@id/error_msg_tv"
+            app:layout_constraintTop_toBottomOf="@id/error_msg_tv"
+            android:id="@+id/retry_btn"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

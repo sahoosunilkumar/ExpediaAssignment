@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Expedia Assignment</string>
+    <string name="empty_list">No Results Found</string>
+    <string name="retry">RETRY</string>
+    <string name="error">Something went wrong at our end!</string>
+    <string name="temp_city">%.0f °</string>
+    <string name="temp_celsius">%.0f C</string>
+    <string name="query">Enter Search String</string>
+    <string name="search">SEARCH</string>
+</resources>
